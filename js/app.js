@@ -15,11 +15,11 @@ class Tamagotchi {
     
             this.hunger ++
     
-            if (this.hunger < 0) {
+            if (this.hunger > 10) {
                 clearInterval(hungerId)
             }
         
-        },1000)
+        },1200)
     }
     incrementSleepiness() {
         const sleepId = setInterval(() => {
@@ -28,11 +28,11 @@ class Tamagotchi {
     
             this.sleepiness ++
     
-            if (this.sleepiness < 0) {
+            if (this.sleepiness > 10) {
                 clearInterval(sleepId)
             }
         
-        },1000)
+        },1500)
     }
     incrementBoredom() {
         const boredId = setInterval(() => {
@@ -41,11 +41,11 @@ class Tamagotchi {
     
             this.boredom ++
     
-            if (this.boredom < 0) {
+            if (this.boredom > 10) {
                 clearInterval(boredId)
             }
         
-        },1000)
+        },1300)
     }
     incrementAge() {
         const ageId = setInterval(() => {
@@ -54,20 +54,20 @@ class Tamagotchi {
     
             this.age ++
     
-            if (this.age < 0) {
+            if (this.age > 2) {
                 clearInterval(ageId)
             }
         
-        },1000)
+        },5000)
     }
     feed() {
-
+        this.hunger --
     }
     turnOffLights() {
-
+        this.sleepiness --
     }
     play() {
-        
+        this.boredom --
     }
     startGame(){
         this.incrementHunger()
@@ -84,11 +84,15 @@ buttonSubmit.addEventListener('click', () => {
     tamagotchi1.startGame()
 })
 
-
-
-
-
-
+document.querySelector('#feed').addEventListener('click', () => {
+    tamagotchi1.feed()
+})
+document.querySelector('#turn-off-lights').addEventListener('click', () => {
+    tamagotchi1.turnOffLights()
+})
+document.querySelector('#play').addEventListener('click', () => {
+    tamagotchi1.play()
+})
 
 
 
