@@ -1,3 +1,29 @@
 body {
     background-color: pink;
 }
+
+img {
+  position: absolute;
+  top: 300px;
+  left: 500px;
+  animation-name: floatUp;
+  animation-duration: 10s;
+  animation-iteration-count: 3;
+}
+@keyframes floatUp {
+    0%   {left:500px; top:300px;}
+    25%  {left:700px; top:300px;}
+    50%  {left:700px; top:500px;}
+    75%  {left:500px; top:500px;}
+    100% {left:500px; top:300px;}
+  }
+footer {
+    position: absolute;
+    left: 600px;
+    bottom: 250px;
+}
+ul {
+  position: absolute;
+  left: 400px;
+  bottom: 600px;
+}

@@ -3,9 +3,9 @@ console.log("Tamagotchi Project 0")
 class Tamagotchi {
     constructor(name, age) {
         this.name = name
-        this.hunger = 10
-        this.sleepiness = 10
-        this.boredom = 10
+        this.hunger = 0
+        this.sleepiness = 0
+        this.boredom = 0
         this.age = age
     }
     feed() {
