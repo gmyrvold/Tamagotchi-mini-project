@@ -17,6 +17,7 @@ class Tamagotchi {
     
             if (this.hunger > 10) {
                 clearInterval(hungerId)
+                //deadTamagotchi()
             }
         
         },1200)
@@ -60,6 +61,12 @@ class Tamagotchi {
         
         },5000)
     }
+    changeImage() {
+
+    }
+    deadTamagotchi(){
+        document.setAttribute
+    }
     feed() {
         this.hunger --
     }
@@ -94,10 +101,8 @@ document.querySelector('#play').addEventListener('click', () => {
     tamagotchi1.play()
 })
 
-
-
-
-
+//let makeTamagotchi = document.createElement('div')
+//makeTamagotchi.setAttribute('id', 'Mashimaro')
 
 
 
