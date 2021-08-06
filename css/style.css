@@ -60,3 +60,9 @@ ul {
   animation-duration: 20s;
   animation-iteration-count: 10;
 }
+h2 {
+  position: absolute;
+  top: 150px;
+  left: 650px;
+  font-size: 40px;
+}

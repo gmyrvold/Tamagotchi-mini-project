@@ -1,8 +1,16 @@
 console.log("Tamagotchi Project 0")
 
+function nameTamagotchi() {
+    let name = document.querySelector('#Tamagotchi-name').value 
+    let h2 = document.createElement('h2')
+    h2.innerText = name
+    h2.setAttribute('id', 'tamagotchi-name')
+    document.body.appendChild(h2)
+}
+    document.querySelector('#submit').addEventListener('click',nameTamagotchi)
+
 class Tamagotchi {
     constructor() {
-        this.name = ''
         this.hunger = 0
         this.sleepiness = 0
         this.boredom = 0
@@ -103,8 +111,6 @@ document.querySelector('#play').addEventListener('click', () => {
 
 //let makeTamagotchi = document.createElement('div')
 //makeTamagotchi.setAttribute('id', 'Mashimaro')
-
-
 
 
 
