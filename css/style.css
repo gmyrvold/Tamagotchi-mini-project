@@ -34,6 +34,13 @@ body {
     75%  {left:1000px; bottom:490px;}
     100% {left:1000px; bottom:500px;}
   }
+  @keyframes hover2 {
+    0%   {top: 500px; top:400px;}
+    25%  {top: 500px; top:420px;}
+    50%  {top: 500px; top:400px;}
+    75%  {top: 500px; top:410px;}
+    100% {top: 500px; top:400px;}
+  }
 footer {
     position: absolute;
     left: 600px;
@@ -60,9 +67,24 @@ ul {
   animation-duration: 20s;
   animation-iteration-count: 10;
 }
+#Clouds2 {
+  position: absolute;
+  transform: scaleX(-1);
+  height: 450px;
+  top: 500px;
+  animation-name: hover2;
+  animation-duration: 20s;
+  animation-iteration-count: 10;
+}
 h2 {
   position: absolute;
   top: 150px;
   left: 650px;
   font-size: 40px;
+}
+#moon {
+  position: absolute;
+  bottom: 600px;
+  left: 800px;
+  height: 300px;
 }

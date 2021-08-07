@@ -15,71 +15,101 @@ class Tamagotchi {
         this.sleepiness = 0
         this.boredom = 0
         this.age = 0
+        this.lightsAreOn = true
     } 
     incrementHunger() {
-        const hungerId = setInterval(() => {
+        this.hungerId = setInterval(() => {
             const hungerElement = document.querySelector('#hunger')
             hungerElement.innerText = `Hunger: ${this.hunger}`
     
             this.hunger ++
     
             if (this.hunger > 10) {
-                clearInterval(hungerId)
-                //deadTamagotchi()
+                clearInterval(this.hungerId)
+                this.deadTamagotchi()
             }
         
         },1200)
     }
     incrementSleepiness() {
-        const sleepId = setInterval(() => {
+        this.sleepId = setInterval(() => {
             const sleepElement = document.querySelector('#sleepiness')
             sleepElement.innerText = `Sleepiness: ${this.sleepiness}`
     
             this.sleepiness ++
     
             if (this.sleepiness > 10) {
-                clearInterval(sleepId)
+                clearInterval(this.sleepId)
+                this.deadTamagotchi()
             }
         
         },1500)
     }
     incrementBoredom() {
-        const boredId = setInterval(() => {
+        this.boredId = setInterval(() => {
             const boredElement = document.querySelector('#boredom')
             boredElement.innerText = `Boredom: ${this.boredom}`
     
             this.boredom ++
     
             if (this.boredom > 10) {
-                clearInterval(boredId)
+                clearInterval(this.boredId)
+                this.deadTamagotchi()
             }
         
         },1300)
     }
     incrementAge() {
-        const ageId = setInterval(() => {
+        this.ageId = setInterval(() => {
             const ageElement = document.querySelector('#age')
-            ageElement.innerText = `Age: ${this.age}`
     
             this.age ++
-    
-            if (this.age > 2) {
-                clearInterval(ageId)
+            ageElement.innerText = `Age: ${this.age}`
+            if (this.age === 1) {
+                //console.log('running')
+                this.ageUp1()
+            }
+            else if (this.age === 2) {
+                this.ageUp2()
+                clearInterval(this.ageId)
             }
         
         },5000)
     }
-    changeImage() {
-
+    ageUp1() {
+        document.querySelector('#Mashimaro').setAttribute('src','Images/Age1Mashi.png')
+    }
+    ageUp2(){
+        document.querySelector('#Mashimaro').setAttribute('src','Images/Age2Mashi.png')
     }
     deadTamagotchi(){
-        document.setAttribute
+        document.querySelector('#Mashimaro').setAttribute('src','Images/Dead Mashimaro.png')
+        clearInterval(this.hungerId)
+        clearInterval(this.sleepId)
+        clearInterval(this.boredId)
+        clearInterval(this.ageId)
+    }
+    nightTime() {
+        let night = document.createElement('img')
+        night.setAttribute('src', 'Images/Moon.png')
+        night.setAttribute('id', 'moon')
+        document.body.appendChild(night)
+        this.lightsAreOn = false
+    }
+    dayTime() {
+        this.lightsAreOn = true
+        document.querySelector('#moon').remove()
     }
     feed() {
         this.hunger --
     }
-    turnOffLights() {
+    toggleLights() {
         this.sleepiness --
+        if (this.lightsAreOn === true) {
+            this.nightTime()
+        } else {
+            this.dayTime()
+        }
     }
     play() {
         this.boredom --
@@ -103,14 +133,11 @@ document.querySelector('#feed').addEventListener('click', () => {
     tamagotchi1.feed()
 })
 document.querySelector('#turn-off-lights').addEventListener('click', () => {
-    tamagotchi1.turnOffLights()
+    tamagotchi1.toggleLights()
 })
 document.querySelector('#play').addEventListener('click', () => {
     tamagotchi1.play()
 })
-
-//let makeTamagotchi = document.createElement('div')
-//makeTamagotchi.setAttribute('id', 'Mashimaro')
 
 
 
